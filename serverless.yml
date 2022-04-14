@@ -1,0 +1,51 @@
+service: serverless-restapi
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage}
+  region: ap-south-1
+  lambdaHashingVersion: 20201221
+
+# add 5 function for CURD operation
+functions: 
+  create:
+    handler: handler.create
+    events:
+      - http: 
+          path: /tweets
+          method: post
+          cors: true
+
+  # create-http:
+  #   handler: handler.create
+  #   events:
+  #     - httpApi: 
+  #         method: post
+  #         path: /tweets_search
+
+# resources:
+#   Resources:
+#     twitterapi:
+#       Type: 'AWS::DynamoDB::Table'
+#       Properties:
+#         TableName: 'twitterapi'
+#         AttributeDefinitions:
+#           - AttributeName: record_pk
+#             AttributeType: S
+#           - AttributeName: record_sk
+#             AttributeType: S
+            
+#         KeySchema:
+#           - AttributeName: record_pk
+#             KeyType: HASH
+#           - AttributeName: record_sk
+#             KeyType: RANGE
+#         ProvisionedThroughput:
+#           ReadCapacityUnits: 1
+#           WriteCapacityUnits: 1
+
+plugins:
+- serverless-offline # adding the plugin to be able to run the offline emulation
