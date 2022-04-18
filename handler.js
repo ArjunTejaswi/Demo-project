@@ -28,7 +28,7 @@ var T = new Twit({
       var sentiment = new Sentiment();
       var params = {
         q: 'modi',
-        count: 20
+        count: 10
       } 
       
       let result = await T.get('search/tweets', params)

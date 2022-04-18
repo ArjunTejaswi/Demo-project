@@ -4,11 +4,10 @@
   "description": "",
   "main": "handler.js",
   "dependencies": {
-    "serverless-offline": "^8.5.0",
     "sentiment": "^5.0.2",
+    "serverless-offline": "^8.7.0",
     "twit": "^2.2.11"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
